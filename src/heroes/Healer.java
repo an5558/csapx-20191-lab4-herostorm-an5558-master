@@ -18,7 +18,8 @@ public class Healer extends Hero {
     public void attack(Hero enemy) {
         heal(HEAL_AMOUNT);
         for(Hero h : party.getHeroes()){
-            h.heal(HEAL_AMOUNT);
+            if(h.getName() != this.getName())
+                h.heal(HEAL_AMOUNT);
         }
         enemy.takeDamage(DAMAGE_AMOUNT);
     }
