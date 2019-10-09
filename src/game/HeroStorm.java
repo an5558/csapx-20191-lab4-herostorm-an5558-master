@@ -2,28 +2,55 @@ package game;
 
 import heroes.*;
 
+/**
+ *The main class for Super Fantasy Hero Storm. Deals with the main game playing.
+ * Run program on command line as:
+ * $java HeroStorm dragon_seed_# lion_seed_#
+ *# represents the integers used to seed the random number generators when shuffling
+ * the two teams consisting of 3 heroes.
+ *
+ * @author Ayane Naito
+ */
+
 public class HeroStorm {
     private int roundCounter;
     private HeroParty dragonParty;
     private HeroParty lionParty;
 
+    /**
+     * Constructs HeroStorm which deals with the main game playing.
+     * @param dragonSeed the integer that seeds the random number generator for the dragon team
+     * @param lionSeed the integer that seeds the random number generator for the lion team
+     */
     public HeroStorm(int dragonSeed, int lionSeed) {
         roundCounter = 1;
         dragonParty = new HeroParty(Team.DRAGON, dragonSeed);
         lionParty = new HeroParty(Team.LION, lionSeed);
     }
 
+    /**
+     * Accessor for the dragonParty
+     * @return the dragonParty associated with this instance of HeroStorm
+     */
     public HeroParty getDragonParty() {
         return dragonParty;
     }
 
+    /**
+     * Accessor for the lionParty
+     * @return the lionParty associated with this instance of HeroStorm
+     */
     public HeroParty getLionParty() {
         return lionParty;
     }
 
+    /**
+     * The method that handles the gameplay for HeroStorm. Determines which team should be attacking,
+     * checks to see if there is a winner, removes fallen heroes from the list, and prints status messages
+     * and summaries of battles.
+     */
     public void play() {
         while(dragonParty.getHeroes().size() != 0 && lionParty.getHeroes().size() != 0) {
-//        for(int i = 0; i < 4; i++) {
             System.out.println("Battle #" + roundCounter);
             System.out.println("=========");
             System.out.println(dragonParty);
@@ -86,6 +113,11 @@ public class HeroStorm {
         }
     }
 
+    /**
+     * Handles the arguments input by the user, constructing the HeroStorm game using the
+     * given integers for the seeds for the corresponding team.
+     * @param args
+     */
     public static void main(String[] args) {
         if(args.length == 2){
             int dragonSeedArg = Integer.parseInt(args[0].split("_")[2]);
