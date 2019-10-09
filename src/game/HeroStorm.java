@@ -33,7 +33,7 @@ public class HeroStorm {
             Hero currentDragon = dragonParty.getHeroes().get(0);
             Hero currentLion = lionParty.getHeroes().get(0);
             if(roundCounter % 2 != 0){
-                System.out.println("*** " + currentDragon.getName() + " vs " + currentLion.getName());
+                System.out.println("*** " + currentDragon.getName() + " vs " + currentLion.getName() + "!");
                 System.out.println();
                 currentDragon.attack(currentLion);
                 if(currentLion.hasFallen()){
@@ -55,7 +55,7 @@ public class HeroStorm {
                 lionParty.addHero(lionParty.removeHero());
                 dragonParty.addHero(dragonParty.removeHero());
             } else{
-                System.out.println("*** " + currentLion.getName() + " vs " + currentDragon.getName());
+                System.out.println("*** " + currentLion.getName() + " vs " + currentDragon.getName() + "!");
                 System.out.println();
                 currentLion.attack(currentDragon);
                 if(currentDragon.hasFallen()){
