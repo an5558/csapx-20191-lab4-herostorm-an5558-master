@@ -40,6 +40,7 @@ public class HeroStorm {
                     System.out.println(currentLion.getName() + " has fallen!");
                     lionParty.removeHero();
                     dragonParty.addHero(dragonParty.removeHero());
+                    roundCounter++;
                     continue;
                 } else if(dragonParty.getHeroes().size() != 0 && lionParty.getHeroes().size() != 0){
                         currentLion.attack(currentDragon);
@@ -47,6 +48,7 @@ public class HeroStorm {
                             System.out.println(currentDragon.getName() + " has fallen!");
                             dragonParty.removeHero();
                             lionParty.addHero(lionParty.removeHero());
+                            roundCounter++;
                             continue;
                         }
                 }
@@ -60,6 +62,7 @@ public class HeroStorm {
                     System.out.println(currentDragon.getName() + " has fallen!");
                     dragonParty.removeHero();
                     lionParty.addHero(lionParty.removeHero());
+                    roundCounter++;
                     continue;
                 } else if(dragonParty.getHeroes().size() != 0 && lionParty.getHeroes().size() != 0){
                         currentDragon.attack(currentLion);
@@ -67,6 +70,7 @@ public class HeroStorm {
                             System.out.println(currentLion.getName() + " has fallen!");
                             lionParty.removeHero();
                             dragonParty.addHero(dragonParty.removeHero());
+                            roundCounter++;
                             continue;
                         }
                 }
