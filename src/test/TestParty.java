@@ -14,6 +14,7 @@ import java.util.List;
  * collection of members.
  *
  * @author Sean Strout @ RIT CS
+ * @author Ayane Naito
  */
 public class TestParty implements Party {
     private List<Hero> heroes;

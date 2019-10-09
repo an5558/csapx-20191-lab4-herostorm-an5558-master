@@ -15,6 +15,7 @@ import static org.junit.Assert.assertEquals;
  * A test class for the healers.
  *
  * @author Sean Strout @ RIT CS
+ * @author Ayane Naito
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestHealer {

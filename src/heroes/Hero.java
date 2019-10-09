@@ -3,6 +3,12 @@ package heroes;
 import game.Team;
 import test.TestParty;
 
+/**
+ *
+ *
+ * @author Ayane Naito
+ */
+
 public abstract class Hero {
     private String name;
 

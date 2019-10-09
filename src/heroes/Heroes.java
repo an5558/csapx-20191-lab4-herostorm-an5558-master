@@ -8,6 +8,7 @@ import game.Team.*;
  * based on team and role type.
  *
  * @author Sean Strout @ RIT CS
+ * @author Ayane Naito
  */
 public class Heroes {
     /**
