@@ -23,6 +23,7 @@ public class HeroStorm {
 
     public void play() {
         while(dragonParty.getHeroes().size() != 0 && lionParty.getHeroes().size() != 0) {
+//        for(int i = 0; i < 4; i++) {
             System.out.println("Battle #" + roundCounter);
             System.out.println("=========");
             System.out.println(dragonParty);
@@ -31,34 +32,53 @@ public class HeroStorm {
             System.out.println();
             Hero currentDragon = dragonParty.getHeroes().get(0);
             Hero currentLion = lionParty.getHeroes().get(0);
-            System.out.println("*** " + currentDragon.getName() + " vs " + currentLion.getName());
-            System.out.println();
             if(roundCounter % 2 != 0){
+                System.out.println("*** " + currentDragon.getName() + " vs " + currentLion.getName());
+                System.out.println();
                 currentDragon.attack(currentLion);
                 if(currentLion.hasFallen()){
                     System.out.println(currentLion.getName() + " has fallen!");
                     lionParty.removeHero();
+                    dragonParty.addHero(dragonParty.removeHero());
+                    continue;
+                } else if(dragonParty.getHeroes().size() != 0 && lionParty.getHeroes().size() != 0){
+                        currentLion.attack(currentDragon);
+                        if (currentDragon.hasFallen()) {
+                            System.out.println(currentDragon.getName() + " has fallen!");
+                            dragonParty.removeHero();
+                            lionParty.addHero(lionParty.removeHero());
+                            continue;
+                        }
                 }
-                currentLion.attack(currentDragon);
-                if(currentDragon.hasFallen()){
-                    System.out.println(currentDragon.getName() + " has fallen!");
-                    dragonParty.removeHero();
-                }
+                lionParty.addHero(lionParty.removeHero());
+                dragonParty.addHero(dragonParty.removeHero());
             } else{
+                System.out.println("*** " + currentLion.getName() + " vs " + currentDragon.getName());
+                System.out.println();
                 currentLion.attack(currentDragon);
                 if(currentDragon.hasFallen()){
                     System.out.println(currentDragon.getName() + " has fallen!");
                     dragonParty.removeHero();
+                    lionParty.addHero(lionParty.removeHero());
+                    continue;
+                } else if(dragonParty.getHeroes().size() != 0 && lionParty.getHeroes().size() != 0){
+                        currentDragon.attack(currentLion);
+                        if (currentLion.hasFallen()) {
+                            System.out.println(currentLion.getName() + " has fallen!");
+                            lionParty.removeHero();
+                            dragonParty.addHero(dragonParty.removeHero());
+                            continue;
+                        }
                 }
-                currentDragon.attack(currentLion);
-                if(currentLion.hasFallen()){
-                    System.out.println(currentLion.getName() + " has fallen!");
-                    lionParty.removeHero();
-                }
+                dragonParty.addHero(dragonParty.removeHero());
+                lionParty.addHero(lionParty.removeHero());
             }
-            lionParty.addHero(currentLion);
-            dragonParty.addHero(currentDragon);
             roundCounter++;
+        }
+        if(dragonParty.getHeroes().size() == 0) {
+            System.out.println("The Lions have won!");
+        } else if(lionParty.getHeroes().size() == 0){
+            System.out.println("The Dragons have won!");
         }
     }
 

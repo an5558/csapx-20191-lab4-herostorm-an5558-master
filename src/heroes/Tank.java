@@ -19,7 +19,7 @@ public class Tank extends Hero {
 
     @Override
     public Role getRole() {
-        return Heroes.Role.BERSERKER;
+        return Heroes.Role.TANK;
     }
 
     @Override

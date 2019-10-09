@@ -48,12 +48,12 @@ public class HeroParty implements Party{
     public String toString() {
         String temp = "";
         if(team == Team.DRAGON) {
-            temp = "{DRAGON}: ";
+            temp = "DRAGON: ";
             for(Hero h : heroes){
                 temp += "\n" + h.toString();
             }
         } else {
-            temp = "{LION}: ";
+            temp = "LION: ";
             for(Hero h : heroes) {
                 temp += "\n" + h.toString();
             }

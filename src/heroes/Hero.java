@@ -47,7 +47,7 @@ public abstract class Hero {
         if(hitPoints > MAX_HIT_POINTS){
             hitPoints = MAX_HIT_POINTS;
         }
-//        System.out.println(name + " heals " + amount + " points");
+        System.out.println(name + " heals " + amount + " points");
     }
 
     public void takeDamage(int amount) {
@@ -55,7 +55,7 @@ public abstract class Hero {
         if(hitPoints < 0){
             hitPoints = 0;
         }
-//        System.out.println(name + " takes " + amount + " damage");
+        System.out.println(name + " takes " + amount + " damage");
     }
 
     @Override
