@@ -13,10 +13,17 @@ public class Tank extends Hero {
     }
 
     @Override
-    public void attack(Hero enemy) { }
+    public void attack(Hero enemy) {
+        enemy.takeDamage(DAMAGE_AMOUNT);
+    }
 
     @Override
     public Role getRole() {
         return Heroes.Role.BERSERKER;
+    }
+
+    @Override
+    public void takeDamage(int amount) {
+        super.takeDamage((int)(amount*SHIELD_DMG_MULTIPLIER));
     }
 }

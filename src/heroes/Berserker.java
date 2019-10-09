@@ -18,7 +18,9 @@ public class Berserker extends Hero {
     }
 
     @Override
-    public void attack(Hero enemy) { }
+    public void attack(Hero enemy) {
+        enemy.takeDamage(DAMAGE_AMOUNT);
+    }
 
     @Override
     public Role getRole() {
